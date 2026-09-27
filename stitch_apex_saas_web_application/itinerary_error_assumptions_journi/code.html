@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Itinerary Dashboard - JOURNI</title><meta content="web_standard" name="shell-type"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {"colors": {"secondary-container": "#a2b2fe", "surface-bright": "#fbf9f8", "surface-container-low": "#f6f3f2", "on-tertiary-container": "#fcfcff", "background": "#fbf9f8", "inverse-surface": "#303030", "primary-container": "#ff5722", "surface-container-highest": "#e4e2e1", "on-tertiary": "#ffffff", "on-surface": "#1b1c1c", "surface-container-high": "#eae8e7", "inverse-primary": "#ffb5a0", "primary-fixed": "#ffdbd1", "tertiary-fixed-dim": "#86cfff", "secondary": "#495a9f", "on-tertiary-fixed": "#001e2e", "surface": "#fbf9f8", "on-secondary-fixed-variant": "#314286", "on-primary-fixed-variant": "#862200", "on-primary-fixed": "#3b0900", "on-background": "#1b1c1c", "on-primary": "#ffffff", "on-error": "#ffffff", "on-secondary": "#ffffff", "on-secondary-fixed": "#001454", "secondary-fixed-dim": "#b8c4ff", "surface-variant": "#e4e2e1", "primary": "#b02f00", "outline": "#907067", "on-primary-container": "#541200", "on-surface-variant": "#5b4039", "error": "#ba1a1a", "surface-gray": "#EEEEEE", "surface-dim": "#dcd9d9", "deep-indigo": "#334488", "primary-fixed-dim": "#ffb5a0", "on-secondary-container": "#314286", "error-container": "#ffdad6", "electric-orange": "#FF5722", "outline-variant": "#e4beb4", "tertiary": "#00628c", "tertiary-fixed": "#c8e6ff", "tertiary-container": "#007caf", "surface-tint": "#b02f00", "surface-container": "#f0eded", "on-error-container": "#93000a", "on-tertiary-fixed-variant": "#004c6d", "obsidian": "#333333", "surface-container-lowest": "#ffffff", "secondary-fixed": "#dde1ff", "inverse-on-surface": "#f3f0f0"}, "borderRadius": {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"}, "spacing": {"margin": "2rem", "space-lg": "1.5rem", "space-xl": "2.5rem", "space-sm": "0.5rem", "space-md": "1rem", "gutter": "1.5rem", "space-xs": "0.25rem"}, "fontFamily": {"body-md": ["Inter"], "label-md": ["Inter"], "body-lg": ["Inter"], "headline-xl": ["Outfit"], "body-sm": ["Inter"], "headline-sm": ["Outfit"], "headline-md": ["Outfit"], "headline-lg": ["Outfit"], "label-sm": ["Inter"]}, "fontSize": {"body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}], "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}], "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}], "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}], "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "500"}], "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}], "headline-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}]}}}};</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-surface font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-7xl mx-auto px-gutter flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="JOURNI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGMKuAxm0fEnW6Mk62d16vx6K4k5IkAyjQGkpYvFj3TFyCXx8sPdgCXTaKjFhvD7H5APmy3OhoV4ppBc9fXJN8FBSA3VlaMK3ijfhpwQFoTZ39AA_TM3IfmwzF2NlADZf03dB8Xhj3vY2egWxfNaoWoUeJxwkHtXUU08fMrbeb43--1E4M0Bm2AW0K75_LrNOclbmdOBUacsjL-f-IjCubIz64MZd0oPuB2wQPJPy3_6SlolLlz15yjzdvs6vhqm68lwc"/><span class="font-headline-md text-on-surface tracking-tight">JOURNI</span></div><nav class="hidden md:flex items-center gap-space-lg" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg"><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="#">Home</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="trip-planner" href="#">Trip Planner</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="itinerary" href="#">Itinerary</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="explore" href="#">Explore</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="saved-trips" href="#">Saved Trips</a></nav><div class="flex items-center gap-space-md"><a class="bg-primary text-on-primary px-space-md py-space-sm rounded-lg text-label-md font-label-md hover:bg-electric-orange hover:text-on-primary transition-all flex items-center gap-space-xs" data-path="trip-planner" href="#">Plan a Trip</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<div class="w-full max-w-5xl mx-auto px-gutter py-space-xl flex flex-col items-center">
+<!-- Status Indicator Pill -->
+<div class="inline-flex items-center gap-space-xs px-space-md py-1 bg-surface-container rounded-full shadow-sm mb-space-lg">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Engine Diagnostic: Unresolvable Constraints</span>
+</div>
+<!-- Main Architectural Error Container -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-xl p-space-lg md:p-space-xl flex flex-col items-center text-center relative overflow-hidden">
+<!-- Ambient Glow Backdrop -->
+<div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary-fixed/30 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Icon & Header Group -->
+<div class="relative z-10 flex flex-col items-center max-w-2xl">
+<div class="w-20 h-20 rounded-full bg-surface-container-low flex items-center justify-center mb-space-md shadow-sm">
+<div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-container text-[32px]">explore_off</span>
+</div>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mb-space-sm">
+          Unable to Generate a Valid Itinerary
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Our deterministic planning engine could not satisfy all constraints for your requested trip without causing schedule conflicts or exceeding your travel pace.
+        </p>
+</div>
+<!-- Identified Constraint Conflicts Drawer/Box -->
+<div class="w-full max-w-3xl mt-space-xl text-left bg-surface-container-low rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-space-sm mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[20px]">rule</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Identified Constraint Conflicts</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-space-sm py-0.5 rounded-full">
+            3 Violations
+          </span>
+</div>
+<div class="space-y-space-sm">
+<!-- Bullet 1 -->
+<div class="flex items-start gap-space-md p-space-md bg-surface-container-lowest rounded-lg">
+<div class="mt-0.5 w-7 h-7 rounded-full bg-error-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-error text-[18px]">directions_walk</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="font-label-md text-label-md text-on-surface">Daily walking tolerance exceeded</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                Day 4 required &gt;18,000 steps to cover requested remote temples at a "Relaxed" pace.
+              </p>
+</div>
+<span class="font-label-sm text-label-sm text-error bg-error-container/40 px-2 py-0.5 rounded">Pace Conflict</span>
+</div>
+<!-- Bullet 2 -->
+<div class="flex items-start gap-space-md p-space-md bg-surface-container-lowest rounded-lg">
+<div class="mt-0.5 w-7 h-7 rounded-full bg-error-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-error text-[18px]">schedule</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="font-label-md text-label-md text-on-surface">Opening hours mismatch</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                2 selected historical sites are closed on the chosen visit days (Mondays).
+              </p>
+</div>
+<span class="font-label-sm text-label-sm text-error bg-error-container/40 px-2 py-0.5 rounded">Calendar Lock</span>
+</div>
+<!-- Bullet 3 -->
+<div class="flex items-start gap-space-md p-space-md bg-surface-container-lowest rounded-lg">
+<div class="mt-0.5 w-7 h-7 rounded-full bg-error-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-error text-[18px]">route</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="font-label-md text-label-md text-on-surface">Geographic spread</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                Distances between selected outlying attractions exceeded maximum inter-city transit buffer (90 mins).
+              </p>
+</div>
+<span class="font-label-sm text-label-sm text-error bg-error-container/40 px-2 py-0.5 rounded">Transit Limit</span>
+</div>
+</div>
+</div>
+<!-- Action & Recovery CTA Section -->
+<div class="mt-space-xl flex flex-col sm:flex-row items-center justify-center gap-space-md w-full max-w-md">
+<a class="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-space-xs px-space-lg py-3 rounded-lg bg-primary-container text-on-tertiary font-label-md text-label-md shadow-md hover:bg-primary transition-all" data-path="trip-planner" href="#">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span>Adjust Trip Preferences</span>
+</a>
+<button class="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-space-xs px-space-lg py-3 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-all font-label-md text-label-md shadow-sm" id="btn-auto-relax">
+<span class="material-symbols-outlined text-[18px]">auto_fix_high</span>
+<span>Auto-Relax &amp; Retry</span>
+</button>
+</div>
+<div class="mt-space-md">
+<button class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors underline underline-offset-4" id="btn-reset-defaults">
+          Reset to Recommended Defaults
+        </button>
+</div>
+</div>
+<!-- Assumptions & Evidence Semantics (Data Trust Architecture) -->
+<div class="w-full max-w-3xl mt-space-lg bg-surface-container-low rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-space-sm mb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">verified_user</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">
+            Evidence Semantics &amp; Assumptions
+          </span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lock_clock</span> Fast-API Payload v2.4
+        </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Note 1 -->
+<div class="p-space-md bg-surface-container-lowest rounded-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-secondary font-bold">Transit Estimates</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-1.5 py-0.2 rounded">DERIVED</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Inter-stop transit times are calculated from geographic coordinates. Real-time traffic is <span class="font-semibold text-on-surface">UNKNOWN</span>.
+            </p>
+</div>
+<div class="mt-space-md flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">commute</span> Haversine Buffer
+          </div>
+</div>
+<!-- Note 2 -->
+<div class="p-space-md bg-surface-container-lowest rounded-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-secondary font-bold">Opening Hours</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-1.5 py-0.2 rounded">FACT vs UNKNOWN</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Verified opening hours are enforced; venues without verified schedule data were skipped to prevent scheduling invalid stops.
+            </p>
+</div>
+<div class="mt-space-md flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">event_available</span> Rigorous Guardrail
+          </div>
+</div>
+<!-- Note 3 -->
+<div class="p-space-md bg-surface-container-lowest rounded-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-secondary font-bold">Dining Availability</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-1.5 py-0.2 rounded">DERIVED</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Restaurant recommendations are curated based on proximity and food preferences. Live table reservations were not checked in real-time.
+            </p>
+</div>
+<div class="mt-space-md flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">restaurant</span> Proximity Clustered
+          </div>
+</div>
+</div>
+<!-- Footer audit token metadata -->
+<div class="mt-space-md pt-space-sm flex flex-wrap items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-space-sm">
+<span>Engine: <span class="text-on-surface font-medium">JOURNI C-SAT v4.1</span></span>
+<span>•</span>
+<span>Optimizer Exit Code: <span class="text-error font-medium">ERR_OVERCONSTRAINED_GRAPH</span></span>
+</div>
+<div>
+<span>Execution time: 412ms</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const autoRelaxBtn = document.getElementById('btn-auto-relax');
+    const resetDefaultsBtn = document.getElementById('btn-reset-defaults');
+
+    if (autoRelaxBtn) {
+      autoRelaxBtn.addEventListener('click', function() {
+        const originalContent = this.innerHTML;
+        this.innerHTML = '<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span><span>Re-computing...</span>';
+        this.disabled = true;
+        setTimeout(() => {
+          this.innerHTML = originalContent;
+          this.disabled = false;
+        }, 1500);
+      });
+    }
+
+    if (resetDefaultsBtn) {
+      resetDefaultsBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const originalText = this.innerText;
+        this.innerText = 'Resetting parameters...';
+        setTimeout(() => {
+          this.innerText = 'Defaults applied. Redirecting to Planner...';
+        }, 800);
+      });
+    }
+  })();
+</script></main><footer class="w-full bg-surface-container-low py-space-xl"><div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant text-body-sm"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-on-surface">JOURNI</span><span>© 2024 JOURNI Inc. All rights reserved.</span></div><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" href="#">Privacy</a><a class="hover:text-on-surface transition-colors" href="#">Terms</a><a class="hover:text-on-surface transition-colors" href="#">Support</a></div></div></footer></body></html>

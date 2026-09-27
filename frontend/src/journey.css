@@ -1,0 +1,261 @@
+.journey-form-panel {
+  margin-top: 18px;
+  padding: 14px;
+  border: 1px solid #eee5e1;
+  border-radius: 10px;
+  background: #fdfbfa;
+}
+
+.journey-form-panel .form-grid {
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.journey-time-toggle {
+  margin-top: 10px;
+}
+
+.ticket-upload-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 2px 0 10px;
+}
+
+.ticket-file-label,
+.ticket-attach {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 7px 10px;
+  border: 1px solid #ead9d1;
+  border-radius: 7px;
+  background: white;
+  color: #8c3218;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 600;
+  overflow: hidden;
+}
+
+.ticket-file-label .material-symbols-outlined {
+  font-size: 16px;
+}
+
+.ticket-file-label input,
+.ticket-attach input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.ticket-error {
+  margin: 6px 0;
+  color: #8b2525;
+  font-size: 10px;
+}
+
+.journey-strip {
+  display: grid;
+  grid-template-columns: 38px minmax(170px, 1.5fr) minmax(120px, auto) auto auto minmax(90px, auto);
+  align-items: center;
+  gap: 13px;
+  margin: 14px auto 0;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  border: 1px solid rgba(144, 112, 103, .12);
+  border-radius: 11px;
+  background: white;
+  box-shadow: 0 3px 15px rgba(49, 35, 29, .035);
+}
+
+.journey-icon {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 9px;
+  background: #fff0e9;
+  color: #b02f00;
+}
+
+.journey-route,
+.journey-duration,
+.journey-status,
+.journey-clock {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.journey-route strong {
+  color: #31251f;
+  font-size: 12px;
+}
+
+.journey-route strong span {
+  padding: 0 3px;
+  color: #b02f00;
+}
+
+.journey-route small {
+  overflow: hidden;
+  color: #76655d;
+  font-size: 9px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.journey-duration {
+  padding-left: 12px;
+  border-left: 1px solid #eee5e1;
+}
+
+.journey-duration small,
+.journey-clock small {
+  color: #89776f;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+
+.journey-duration strong {
+  color: #31251f;
+  font-size: 11px;
+}
+
+.journey-status-badge {
+  width: fit-content;
+  padding: 4px 7px;
+  border-radius: 99px;
+  background: #e4f2e9;
+  color: #276345;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.ticket-state {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #75645d;
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.ticket-state .material-symbols-outlined {
+  color: #796c91;
+  font-size: 14px;
+}
+
+.journey-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.journey-actions .text-button {
+  padding: 2px 0;
+  white-space: nowrap;
+}
+
+.journey-actions a {
+  text-decoration: none;
+}
+
+.journey-actions .ticket-remove {
+  color: #81726b;
+}
+
+.journey-clock {
+  align-items: flex-end;
+  padding-left: 10px;
+  border-left: 1px solid #eee5e1;
+}
+
+.journey-clock strong {
+  color: #4c4660;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.journey-ticket-error {
+  grid-column: 2 / -1;
+  color: #8b2525;
+  font-size: 9px;
+}
+
+@media (max-width: 900px) {
+  .journey-strip {
+    grid-template-columns: 36px minmax(0, 1fr) minmax(100px, auto) auto;
+  }
+
+  .journey-actions {
+    grid-column: 2 / 4;
+  }
+
+  .journey-clock {
+    grid-column: 4;
+    grid-row: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .journey-strip {
+    grid-template-columns: 32px minmax(0, 1fr) auto;
+    gap: 9px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .journey-icon {
+    width: 32px;
+    height: 32px;
+    grid-row: 1 / 3;
+  }
+
+  .journey-route {
+    grid-column: 2;
+  }
+
+  .journey-route strong {
+    font-size: 11px;
+  }
+
+  .journey-route small {
+    white-space: normal;
+  }
+
+  .journey-duration {
+    grid-column: 2;
+    padding: 0;
+    border: 0;
+  }
+
+  .journey-status {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .journey-clock {
+    grid-column: 3;
+    grid-row: 2;
+    padding: 0;
+    border: 0;
+  }
+
+  .journey-actions {
+    grid-column: 2 / 4;
+  }
+
+  .journey-ticket-error {
+    grid-column: 1 / -1;
+  }
+}

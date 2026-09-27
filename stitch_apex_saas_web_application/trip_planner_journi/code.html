@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><title>Trip Planner - JOURNI</title><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {"colors": {"secondary-container": "#a2b2fe", "surface-bright": "#fbf9f8", "surface-container-low": "#f6f3f2", "on-tertiary-container": "#fcfcff", "background": "#fbf9f8", "inverse-surface": "#303030", "primary-container": "#ff5722", "surface-container-highest": "#e4e2e1", "on-tertiary": "#ffffff", "on-surface": "#1b1c1c", "surface-container-high": "#eae8e7", "inverse-primary": "#ffb5a0", "primary-fixed": "#ffdbd1", "tertiary-fixed-dim": "#86cfff", "secondary": "#495a9f", "on-tertiary-fixed": "#001e2e", "surface": "#fbf9f8", "on-secondary-fixed-variant": "#314286", "on-primary-fixed-variant": "#862200", "on-primary-fixed": "#3b0900", "on-background": "#1b1c1c", "on-primary": "#ffffff", "on-error": "#ffffff", "on-secondary": "#ffffff", "on-secondary-fixed": "#001454", "secondary-fixed-dim": "#b8c4ff", "surface-variant": "#e4e2e1", "primary": "#b02f00", "outline": "#907067", "on-primary-container": "#541200", "on-surface-variant": "#5b4039", "error": "#ba1a1a", "surface-gray": "#EEEEEE", "surface-dim": "#dcd9d9", "deep-indigo": "#334488", "primary-fixed-dim": "#ffb5a0", "on-secondary-container": "#314286", "error-container": "#ffdad6", "electric-orange": "#FF5722", "outline-variant": "#e4beb4", "tertiary": "#00628c", "tertiary-fixed": "#c8e6ff", "tertiary-container": "#007caf", "surface-tint": "#b02f00", "surface-container": "#f0eded", "on-error-container": "#93000a", "on-tertiary-fixed-variant": "#004c6d", "obsidian": "#333333", "surface-container-lowest": "#ffffff", "secondary-fixed": "#dde1ff", "inverse-on-surface": "#f3f0f0"}, "borderRadius": {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"}, "spacing": {"margin": "2rem", "space-lg": "1.5rem", "space-xl": "2.5rem", "space-sm": "0.5rem", "space-md": "1rem", "gutter": "1.5rem", "space-xs": "0.25rem"}, "fontFamily": {"body-md": ["Inter"], "label-md": ["Inter"], "body-lg": ["Inter"], "headline-xl": ["Outfit"], "body-sm": ["Inter"], "headline-sm": ["Outfit"], "headline-md": ["Outfit"], "headline-lg": ["Outfit"], "label-sm": ["Inter"]}, "fontSize": {"body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}], "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}], "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}], "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}], "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "500"}], "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}], "headline-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}]}}}};</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/></head><body class="bg-surface font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-7xl mx-auto px-gutter flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="JOURNI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC401EHIcJvhzFWCtA05gEGEYPi_wxkh2jprYF0lVZup2JV2cVqehNn9LTucDLCTBBzwHAbuPZ6ODBQQIghp3FdmuJcNheMFxdaDUhXjxrIOZpVYNG-qgvWMHsv4Njar4DFlDLQ9y5gzlt47t9WkhnvC7DdqGS4j-yQ65sueDHy89qdHSfgg5_Alv4zZAqaUbF1bYIxSRPFWPT11bYGLBoB_4IXsZe5KiIOGYtJOWCrllOjdd20iuagIeDxUWZ1c5M7Yk0"/><span class="font-headline-md text-on-surface tracking-tight">JOURNI</span></div><nav class="hidden md:flex items-center gap-space-lg" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg"><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="#">Home</a><a aria-current="page" class="transition-colors bg-primary-container text-on-primary-container font-bold rounded-lg" data-path="trip-planner" href="#">Trip Planner</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="itinerary" href="#">Itinerary</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="explore" href="#">Explore</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="saved-trips" href="#">Saved Trips</a></nav><div class="flex items-center gap-space-md"><a class="bg-primary text-on-primary px-space-md py-space-sm rounded-lg text-label-md font-label-md hover:bg-electric-orange hover:text-on-primary transition-all flex items-center gap-space-xs" data-path="trip-planner" href="#">Plan a Trip</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<div class="max-w-7xl mx-auto w-full px-gutter py-space-xl">
+<!-- Top Context & Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-xl">
+<div>
+<div class="inline-flex items-center gap-space-xs bg-primary-fixed text-on-primary-fixed px-space-sm py-space-xs rounded-full text-label-sm font-label-md mb-space-sm">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+          AI-Powered Itinerary Generator
+        </div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface">Plan Your Next Journey</h1>
+<p class="text-body-md text-on-surface-variant mt-1">Configure your dream trip step-by-step. Our AI will curate a personalized itinerary tailored to your preferences.</p>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="text-body-sm font-label-md text-on-surface-variant">Step <span id="current-step-num">1</span> of 7</span>
+<div class="w-32 h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-electric-orange transition-all duration-500 w-[14%]" id="header-progress"></div>
+</div>
+</div>
+</div>
+<!-- Main Grid Layout: Wizard Form + Live Summary Sidebar -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left 8 Columns: Wizard Steps -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl shadow-xl p-space-xl relative overflow-hidden">
+<!-- Background decorative gradient blur -->
+<div class="absolute -top-24 -right-24 w-72 h-72 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Wizard Form Container -->
+<form class="relative z-10" id="trip-wizard-form">
+<!-- STEP 1: Destination & Origin -->
+<div class="wizard-step" data-step="1">
+<div class="mb-space-lg">
+<h2 class="text-headline-md font-headline-md text-on-surface">Where are you heading?</h2>
+<p class="text-body-sm text-on-surface-variant mt-1">Tell us your departure point and dream destination.</p>
+</div>
+<div class="space-y-space-md">
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-space-xs">Origin City</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">flight_takeoff</span>
+<input class="w-full bg-surface-container-low text-on-surface pl-11 pr-space-md py-space-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-electric-orange transition-all" id="origin-input" placeholder="e.g., New York (JFK)" type="text" value="New York, USA"/>
+</div>
+</div>
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-space-xs">Destination City / Region</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">location_on</span>
+<input class="w-full bg-surface-container-low text-on-surface pl-11 pr-space-md py-space-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-electric-orange transition-all" id="destination-input" placeholder="e.g., Tokyo, Japan" type="text" value="Kyoto, Japan"/>
+</div>
+</div>
+<!-- Quick Destination Suggestions -->
+<div class="pt-space-sm">
+<span class="text-label-sm text-on-surface-variant uppercase tracking-wider block mb-space-xs">Trending Destinations</span>
+<div class="flex flex-wrap gap-space-sm">
+<button class="bg-surface-container-low hover:bg-surface-container-high px-space-md py-space-xs rounded-full text-label-md text-on-surface transition-colors flex items-center gap-space-xs" onclick="setDestination('Kyoto, Japan')" type="button">
+<span class="w-2 h-2 rounded-full bg-electric-orange"></span> Kyoto, Japan
+                  </button>
+<button class="bg-surface-container-low hover:bg-surface-container-high px-space-md py-space-xs rounded-full text-label-md text-on-surface transition-colors flex items-center gap-space-xs" onclick="setDestination('Amalfi Coast, Italy')" type="button">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span> Amalfi Coast
+                  </button>
+<button class="bg-surface-container-low hover:bg-surface-container-high px-space-md py-space-xs rounded-full text-label-md text-on-surface transition-colors flex items-center gap-space-xs" onclick="setDestination('Reykjavik, Iceland')" type="button">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Reykjavik
+                  </button>
+</div>
+</div>
+</div>
+</div>
+<!-- STEP 2: Dates & Duration -->
+<div class="wizard-step hidden" data-step="2">
+<div class="mb-space-lg">
+<h2 class="text-headline-md font-headline-md text-on-surface">When and for how long?</h2>
+<p class="text-body-sm text-on-surface-variant mt-1">Select your preferred travel month and trip length.</p>
+</div>
+<div class="space-y-space-md">
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-space-xs">Preferred Month</label>
+<div class="grid grid-cols-3 md:grid-cols-4 gap-space-sm">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="travel-month" type="radio" value="October 2024"/>
+<div class="p-space-sm bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-lg text-center font-label-md transition-all">October</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="travel-month" type="radio" value="November 2024"/>
+<div class="p-space-sm bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-lg text-center font-label-md transition-all">November</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="travel-month" type="radio" value="December 2024"/>
+<div class="p-space-sm bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-lg text-center font-label-md transition-all">December</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="travel-month" type="radio" value="Spring 2025"/>
+<div class="p-space-sm bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-lg text-center font-label-md transition-all">Spring 2025</div>
+</label>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center mb-space-xs">
+<label class="text-label-md font-label-md text-on-surface">Number of Nights</label>
+<span class="font-headline-sm text-primary" id="nights-display">7 Nights</span>
+</div>
+<input class="w-full accent-electric-orange cursor-pointer" id="nights-range" max="30" min="1" oninput="updateNights(this.value)" type="range" value="7"/>
+<div class="flex justify-between text-label-sm text-on-surface-variant mt-1">
+<span>1 Night</span>
+<span>15 Nights</span>
+<span>30 Nights</span>
+</div>
+</div>
+</div>
+</div>
+<!-- STEP 3: Traveller Type & Party Composition -->
+<div class="wizard-step hidden" data-step="3">
+<div class="mb-space-lg">
+<h2 class="text-headline-md font-headline-md text-on-surface">Who is traveling?</h2>
+<p class="text-body-sm text-on-surface-variant mt-1">Select your party dynamics to calibrate activities and pace.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-space-md">
+<label class="cursor-pointer group">
+<input checked="" class="peer sr-only" name="traveller-type" type="radio" value="Solo Explorer"/>
+<div class="p-space-md bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-xl flex flex-col items-center text-center transition-all h-full">
+<span class="material-symbols-outlined text-[32px] mb-2 group-hover:scale-110 transition-transform">person</span>
+<span class="font-label-md">Solo Explorer</span>
+<span class="text-label-sm text-on-surface-variant peer-checked:text-on-primary-container mt-1">Independent &amp; flexible</span>
+</div>
+</label>
+<label class="cursor-pointer group">
+<input class="peer sr-only" name="traveller-type" type="radio" value="Couple / Romantic"/>
+<div class="p-space-md bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-xl flex flex-col items-center text-center transition-all h-full">
+<span class="material-symbols-outlined text-[32px] mb-2 group-hover:scale-110 transition-transform">favorite</span>
+<span class="font-label-md">Couple</span>
+<span class="text-label-sm text-on-surface-variant peer-checked:text-on-primary-container mt-1">Romantic &amp; cozy</span>
+</div>
+</label>
+<label class="cursor-pointer group">
+<input class="peer sr-only" name="traveller-type" type="radio" value="Family with Kids"/>
+<div class="p-space-md bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-xl flex flex-col items-center text-center transition-all h-full">
+<span class="material-symbols-outlined text-[32px] mb-2 group-hover:scale-110 transition-transform">family_restroom</span>
+<span class="font-label-md">Family</span>
+<span class="text-label-sm text-on-surface-variant peer-checked:text-on-primary-container mt-1">Kid-friendly spots</span>
+</div>
+</label>
+<label class="cursor-pointer group">
+<input class="peer sr-only" name="traveller-type" type="radio" value="Group of Friends"/>
+<div class="p-space-md bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-xl flex flex-col items-center text-center transition-all h-full">
+<span class="material-symbols-outlined text-[32px] mb-2 group-hover:scale-110 transition-transform">group</span>
+<span class="font-label-md">Friends</span>
+<span class="text-label-sm text-on-surface-variant peer-checked:text-on-primary-container mt-1">Nightlife &amp; fun</span>
+</div>
+</label>
+<label class="cursor-pointer group">
+<input class="peer sr-only" name="traveller-type" type="radio" value="Seniors / Relaxed"/>
+<div class="p-space-md bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-xl flex flex-col items-center text-center transition-all h-full">
+<span class="material-symbols-outlined text-[32px] mb-2 group-hover:scale-110 transition-transform">elderly</span>
+<span class="font-label-md">Seniors</span>
+<span class="text-label-sm text-on-surface-variant peer-checked:text-on-primary-container mt-1">Comfortable pacing</span>
+</div>
+</label>
+</div>
+</div>
+<!-- STEP 4: Interests -->
+<div class="wizard-step hidden" data-step="4">
+<div class="mb-space-lg">
+<h2 class="text-headline-md font-headline-md text-on-surface">What are your passions?</h2>
+<p class="text-body-sm text-on-surface-variant mt-1">Select all categories that spark your curiosity (pick at least 3).</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-space-md">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="interests" type="checkbox" value="Food &amp; Culinary"/>
+<div class="p-space-md bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-xl flex items-center gap-space-sm transition-all h-full">
+<span class="material-symbols-outlined text-[24px]">restaurant</span>
+<span class="font-label-md">Food &amp; Culinary</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="interests" type="checkbox" value="Art &amp; Culture"/>
+<div class="p-space-md bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-xl flex items-center gap-space-sm transition-all h-full">
+<span class="material-symbols-outlined text-[24px]">palette</span>
+<span class="font-label-md">Art &amp; Culture</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="interests" type="checkbox" value="Nature &amp; Outdoors"/>
+<div class="p-space-md bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-xl flex items-center gap-space-sm transition-all h-full">
+<span class="material-symbols-outlined text-[24px]">landscape</span>
+<span class="font-label-md">Nature</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="interests" type="checkbox" value="Beaches &amp; Coast"/>
+<div class="p-space-md bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-xl flex items-center gap-space-sm transition-all h-full">
+<span class="material-symbols-outlined text-[24px]">waves</span>
+<span class="font-label-md">Beaches</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="interests" type="checkbox" value="Wellness &amp; Spa"/>
+<div class="p-space-md bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-xl flex items-center gap-space-sm transition-all h-full">
+<span class="material-symbols-outlined text-[24px]">spa</span>
+<span class="font-label-md">Wellness</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="interests" type="checkbox" value="Adventure &amp; Hiking"/>
+<div class="p-space-md bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-xl flex items-center gap-space-sm transition-all h-full">
+<span class="material-symbols-outlined text-[24px]">hiking</span>
+<span class="font-label-md">Adventure</span>
+</div>
+</label>
+</div>
+</div>
+<!-- STEP 5: Preferred Pace -->
+<div class="wizard-step hidden" data-step="5">
+<div class="mb-space-lg">
+<h2 class="text-headline-md font-headline-md text-on-surface">Choose your travel pace</h2>
+<p class="text-body-sm text-on-surface-variant mt-1">How packed do you want your daily schedule to be?</p>
+</div>
+<div class="space-y-space-md">
+<label class="cursor-pointer block">
+<input class="peer sr-only" name="pace" type="radio" value="Easy-going (1-2 activities/day)"/>
+<div class="p-space-md bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-xl flex items-center justify-between transition-all">
+<div class="flex items-center gap-space-md">
+<span class="material-symbols-outlined text-[32px]">self_improvement</span>
+<div>
+<h4 class="font-label-md">Easy-going</h4>
+<p class="text-body-sm text-on-surface-variant peer-checked:text-on-primary-container">1-2 relaxed activities per day with plenty of downtime.</p>
+</div>
+</div>
+<span class="material-symbols-outlined opacity-0 peer-checked:opacity-100">check_circle</span>
+</div>
+</label>
+<label class="cursor-pointer block">
+<input checked="" class="peer sr-only" name="pace" type="radio" value="Balanced (3-4 activities/day)"/>
+<div class="p-space-md bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-xl flex items-center justify-between transition-all">
+<div class="flex items-center gap-space-md">
+<span class="material-symbols-outlined text-[32px]">balance</span>
+<div>
+<h4 class="font-label-md">Balanced</h4>
+<p class="text-body-sm text-on-surface-variant peer-checked:text-on-primary-container">3-4 highlights per day balancing exploration and rest.</p>
+</div>
+</div>
+<span class="material-symbols-outlined opacity-0 peer-checked:opacity-100">check_circle</span>
+</div>
+</label>
+<label class="cursor-pointer block">
+<input class="peer sr-only" name="pace" type="radio" value="Packed (5+ activities/day)"/>
+<div class="p-space-md bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-xl flex items-center justify-between transition-all">
+<div class="flex items-center gap-space-md">
+<span class="material-symbols-outlined text-[32px]">bolt</span>
+<div>
+<h4 class="font-label-md">Packed</h4>
+<p class="text-body-sm text-on-surface-variant peer-checked:text-on-primary-container">Maximum exploration from sunrise to sunset.</p>
+</div>
+</div>
+<span class="material-symbols-outlined opacity-0 peer-checked:opacity-100">check_circle</span>
+</div>
+</label>
+</div>
+</div>
+<!-- STEP 6: Comfort & Budget -->
+<div class="wizard-step hidden" data-step="6">
+<div class="mb-space-lg">
+<h2 class="text-headline-md font-headline-md text-on-surface">Budget &amp; Comfort Level</h2>
+<p class="text-body-sm text-on-surface-variant mt-1">Select your preferred accommodation and spending tier.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<label class="cursor-pointer">
+<input class="peer sr-only" name="budget" type="radio" value="Budget / Backpacker"/>
+<div class="p-space-md bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-xl flex flex-col items-center text-center transition-all h-full">
+<span class="material-symbols-outlined text-[32px] mb-2">savings</span>
+<span class="font-label-md">Budget</span>
+<span class="text-label-sm text-on-surface-variant peer-checked:text-on-primary-container mt-1">Hostels, guesthouses &amp; local transit</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="budget" type="radio" value="Comfort / Mid-range"/>
+<div class="p-space-md bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-xl flex flex-col items-center text-center transition-all h-full">
+<span class="material-symbols-outlined text-[32px] mb-2">hotel</span>
+<span class="font-label-md">Comfort</span>
+<span class="text-label-sm text-on-surface-variant peer-checked:text-on-primary-container mt-1">3-4 star hotels &amp; balanced dining</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="budget" type="radio" value="Luxury / 5-Star"/>
+<div class="p-space-md bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-xl flex flex-col items-center text-center transition-all h-full">
+<span class="material-symbols-outlined text-[32px] mb-2">diamond</span>
+<span class="font-label-md">Luxury</span>
+<span class="text-label-sm text-on-surface-variant peer-checked:text-on-primary-container mt-1">5-star resorts &amp; fine dining</span>
+</div>
+</label>
+</div>
+</div>
+<!-- STEP 7: Optional Needs & Preferences -->
+<div class="wizard-step hidden" data-step="7">
+<div class="mb-space-lg">
+<h2 class="text-headline-md font-headline-md text-on-surface">Special Requirements</h2>
+<p class="text-body-sm text-on-surface-variant mt-1">Any dietary needs, mobility considerations, or transport preferences?</p>
+</div>
+<div class="space-y-space-md">
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-space-xs">Dietary Restrictions</label>
+<div class="flex flex-wrap gap-space-sm">
+<label class="cursor-pointer">
+<input class="peer sr-only" name="diet" type="checkbox" value="Vegetarian"/>
+<div class="px-space-md py-space-xs bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-full text-label-md transition-all">Vegetarian</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="diet" type="checkbox" value="Vegan"/>
+<div class="px-space-md py-space-xs bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-full text-label-md transition-all">Vegan</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="diet" type="checkbox" value="Gluten-Free"/>
+<div class="px-space-md py-space-xs bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-full text-label-md transition-all">Gluten-Free</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="diet" type="checkbox" value="Halal"/>
+<div class="px-space-md py-space-xs bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-full text-label-md transition-all">Halal</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="diet" type="checkbox" value="Kosher"/>
+<div class="px-space-md py-space-xs bg-surface-container-low peer-checked:bg-primary-container peer-checked:text-on-primary-container rounded-full text-label-md transition-all">Kosher</div>
+</label>
+</div>
+</div>
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-space-xs">Mobility &amp; Accessibility</label>
+<select class="w-full bg-surface-container-low text-on-surface px-space-md py-space-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-electric-orange transition-all" name="mobility">
+<option value="No special requirements">Standard walking &amp; exploration</option>
+<option value="Wheelchair accessible routes">Wheelchair accessible routes only</option>
+<option value="Minimal walking required">Minimal walking required (frequent transport)</option>
+</select>
+</div>
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-space-xs">Preferred Transport Mode</label>
+<select class="w-full bg-surface-container-low text-on-surface px-space-md py-space-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-electric-orange transition-all" name="transport">
+<option value="Public Transit &amp; Walking">Public Transit &amp; Walking (Recommended)</option>
+<option value="Private Car / Taxis">Private Car / Taxis</option>
+<option value="Rental Car">Rental Car</option>
+<option value="Bicycle &amp; Walking">Bicycle &amp; Walking</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Wizard Navigation Buttons -->
+<div class="flex items-center justify-between mt-space-xl pt-space-md">
+<button class="px-space-lg py-space-sm bg-surface-container-high text-on-surface rounded-lg text-label-md font-label-md hover:bg-surface-dim transition-all opacity-50 cursor-not-allowed" disabled="" id="prev-btn" onclick="changeStep(-1)" type="button">
+              Back
+            </button>
+<button class="px-space-xl py-space-sm bg-primary text-on-primary rounded-lg text-label-md font-label-md hover:bg-electric-orange transition-all flex items-center gap-space-xs shadow-md" id="next-btn" onclick="changeStep(1)" type="button">
+<span>Next Step</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Right 4 Columns: Live Summary Sidebar -->
+<div class="lg:col-span-4 bg-surface-container-low rounded-xl p-space-lg shadow-lg relative overflow-hidden flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-sm border-b border-surface-container-highest">
+<h3 class="font-headline-sm text-on-surface flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary">fact_check</span>
+            Trip Summary
+          </h3>
+<span class="bg-primary-fixed text-on-primary-fixed text-label-sm font-label-md px-space-xs py-0.5 rounded">Live AI Preview</span>
+</div>
+<!-- Destination Image Preview -->
+<div class="relative rounded-lg overflow-hidden h-40 shadow-inner">
+<div class="w-full h-full bg-cover bg-center transition-all duration-700 hover:scale-105" data-alt="Panoramic atmospheric view of historic temples and gardens in Kyoto Japan at sunset with warm amber lighting and cherry blossom trees" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAI0IqGPSpKhqEEVh8f5WcUvNqhVRHzzGi5Gqnz2-_kELityxfmRvg4ffDRv-vlpNjcIWD9h9I_8ua4rkfXQcvNWyt80NSTsYBK2YUSyk8Rw1gWVK3J5PBHkFLpXodl7juU6DdaBaORnPwKTMeLMaBXEPO6TqwamQ_N4pHNGwUm3ZTnTfhRqDtPq214gUy7kM8mybQPxg6mxkxmiWXTtXq3XohlrZfcfwH4W0ywkkI83R9nHCm_nwKq2w')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-transparent to-transparent flex items-end p-space-sm">
+<div>
+<span class="text-label-sm text-white/80 uppercase tracking-widest">Destination</span>
+<h4 class="text-headline-sm text-white font-headline-md" id="summary-destination">Kyoto, Japan</h4>
+</div>
+</div>
+</div>
+<!-- Summary Details List -->
+<div class="space-y-space-sm text-body-sm">
+<div class="flex justify-between items-center py-1 border-b border-surface-container-highest">
+<span class="text-on-surface-variant flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">flight_takeoff</span> From
+            </span>
+<span class="font-label-md text-on-surface" id="summary-origin">New York, USA</span>
+</div>
+<div class="flex justify-between items-center py-1 border-b border-surface-container-highest">
+<span class="text-on-surface-variant flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">calendar_month</span> Duration
+            </span>
+<span class="font-label-md text-on-surface" id="summary-duration">7 Nights (Oct 2024)</span>
+</div>
+<div class="flex justify-between items-center py-1 border-b border-surface-container-highest">
+<span class="text-on-surface-variant flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">group</span> Traveller
+            </span>
+<span class="font-label-md text-on-surface" id="summary-traveller">Solo Explorer</span>
+</div>
+<div class="flex justify-between items-center py-1 border-b border-surface-container-highest">
+<span class="text-on-surface-variant flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">speed</span> Pace
+            </span>
+<span class="font-label-md text-on-surface" id="summary-pace">Balanced</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="text-on-surface-variant flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">payments</span> Tier
+            </span>
+<span class="font-label-md text-on-surface" id="summary-budget">Comfort / Mid-range</span>
+</div>
+</div>
+<!-- Animated Progress Meter -->
+<div class="bg-surface rounded-lg p-space-sm mt-space-sm">
+<div class="flex justify-between items-center mb-space-xs">
+<span class="text-label-sm font-label-md text-on-surface">AI Readiness Score</span>
+<span class="text-label-sm font-label-md text-primary" id="readiness-score">14%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary transition-all duration-500 w-[14%]" id="sidebar-progress-bar"></div>
+</div>
+<p class="text-[11px] text-on-surface-variant mt-1 text-center">Complete all steps for optimized generation.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Client-side Wizard & Live Sync Script -->
+<script>
+    let currentStep = 1;
+    const totalSteps = 7;
+
+    function updateNights(val) {
+      document.getElementById('nights-display').innerText = val + (val == 1 ? ' Night' : ' Nights');
+      updateSummary();
+    }
+
+    function setDestination(dest) {
+      document.getElementById('destination-input').value = dest;
+      updateSummary();
+    }
+
+    function changeStep(direction) {
+      const newStep = currentStep + direction;
+      if (newStep >= 1 && newStep <= totalSteps) {
+        document.querySelector(`.wizard-step[data-step="${currentStep}"]`).classList.add('hidden');
+        currentStep = newStep;
+        document.querySelector(`.wizard-step[data-step="${currentStep}"]`).classList.remove('hidden');
+        
+        // Update Step indicators
+        document.getElementById('current-step-num').innerText = currentStep;
+        const progressPct = Math.round((currentStep / totalSteps) * 100);
+        document.getElementById('header-progress').style.width = progressPct + '%';
+        document.getElementById('sidebar-progress-bar').style.width = progressPct + '%';
+        document.getElementById('readiness-score').innerText = progressPct + '%';
+
+        // Buttons state
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        if (currentStep === 1) {
+          prevBtn.disabled = true;
+          prevBtn.classList.add('opacity-50', 'cursor-not-allowed');
+        } else {
+          prevBtn.disabled = false;
+          prevBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+
+        if (currentStep === totalSteps) {
+          nextBtn.innerHTML = '<span>Generate Itinerary</span><span class="material-symbols-outlined text-[16px]">auto_awesome</span>';
+          nextBtn.classList.add('bg-primary-container', 'text-on-primary-container');
+        } else {
+          nextBtn.innerHTML = '<span>Next Step</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span>';
+          nextBtn.classList.remove('bg-primary-container', 'text-on-primary-container');
+        }
+
+        updateSummary();
+      } else if (currentStep === totalSteps && direction > 0) {
+        alert('Generating your bespoke AI itinerary! Redirecting...');
+      }
+    }
+
+    function updateSummary() {
+      const origin = document.getElementById('origin-input').value || 'New York, USA';
+      const destination = document.getElementById('destination-input').value || 'Kyoto, Japan';
+      const nights = document.getElementById('nights-range').value;
+      const monthInput = document.querySelector('input[name="travel-month"]:checked');
+      const month = monthInput ? monthInput.value : 'Oct 2024';
+      
+      const travellerInput = document.querySelector('input[name="traveller-type"]:checked');
+      const traveller = travellerInput ? travellerInput.value : 'Solo Explorer';
+
+      const paceInput = document.querySelector('input[name="pace"]:checked');
+      let pace = 'Balanced';
+      if (paceInput) {
+        if (paceInput.value.includes('Easy')) pace = 'Easy-going';
+        else if (paceInput.value.includes('Packed')) pace = 'Packed';
+      }
+
+      const budgetInput = document.querySelector('input[name="budget"]:checked');
+      const budget = budgetInput ? budgetInput.value : 'Comfort / Mid-range';
+
+      document.getElementById('summary-origin').innerText = origin;
+      document.getElementById('summary-destination').innerText = destination;
+      document.getElementById('summary-duration').innerText = nights + ' Nights (' + month + ')';
+      document.getElementById('summary-traveller').innerText = traveller;
+      document.getElementById('summary-pace').innerText = pace;
+      document.getElementById('summary-budget').innerText = budget;
+    }
+
+    // Attach real-time event listeners to inputs
+    document.querySelectorAll('input, select').forEach(el => {
+      el.addEventListener('input', updateSummary);
+      el.addEventListener('change', updateSummary);
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-container-low py-space-xl"><div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant text-body-sm"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-on-surface">JOURNI</span><span>© 2024 JOURNI Inc. All rights reserved.</span></div><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" href="#">Privacy</a><a class="hover:text-on-surface transition-colors" href="#">Terms</a><a class="hover:text-on-surface transition-colors" href="#">Support</a></div></div></footer></body></html>

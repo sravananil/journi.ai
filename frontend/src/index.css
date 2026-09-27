@@ -1,0 +1,38 @@
+:root {
+  font-family: Inter, sans-serif;
+  color: #1b1c1c;
+  background: #fbf9f8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  --surface: #fbf9f8;
+  --surface-low: #f6f3f2;
+  --surface-card: #fff;
+  --surface-mid: #f0eded;
+  --surface-high: #eae8e7;
+  --surface-top: #e4e2e1;
+  --ink: #1b1c1c;
+  --muted: #5b4039;
+  --outline: #907067;
+  --outline-soft: #e4beb4;
+  --primary: #b02f00;
+  --orange: #ff5722;
+  --orange-pale: #ffdbd1;
+  --indigo: #495a9f;
+  --blue-pale: #dde1ff;
+  --teal: #00628c;
+  --teal-pale: #c8e6ff;
+  --error: #ba1a1a;
+  --shadow: 0 10px 35px rgba(51, 35, 28, .08);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; background: var(--surface); }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: .6; }
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--orange-pale); }

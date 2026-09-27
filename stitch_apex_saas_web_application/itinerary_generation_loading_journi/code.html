@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Itinerary Dashboard - JOURNI</title><meta content="web_standard" name="shell-type"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {"colors": {"secondary-container": "#a2b2fe", "surface-bright": "#fbf9f8", "surface-container-low": "#f6f3f2", "on-tertiary-container": "#fcfcff", "background": "#fbf9f8", "inverse-surface": "#303030", "primary-container": "#ff5722", "surface-container-highest": "#e4e2e1", "on-tertiary": "#ffffff", "on-surface": "#1b1c1c", "surface-container-high": "#eae8e7", "inverse-primary": "#ffb5a0", "primary-fixed": "#ffdbd1", "tertiary-fixed-dim": "#86cfff", "secondary": "#495a9f", "on-tertiary-fixed": "#001e2e", "surface": "#fbf9f8", "on-secondary-fixed-variant": "#314286", "on-primary-fixed-variant": "#862200", "on-primary-fixed": "#3b0900", "on-background": "#1b1c1c", "on-primary": "#ffffff", "on-error": "#ffffff", "on-secondary": "#ffffff", "on-secondary-fixed": "#001454", "secondary-fixed-dim": "#b8c4ff", "surface-variant": "#e4e2e1", "primary": "#b02f00", "outline": "#907067", "on-primary-container": "#541200", "on-surface-variant": "#5b4039", "error": "#ba1a1a", "surface-gray": "#EEEEEE", "surface-dim": "#dcd9d9", "deep-indigo": "#334488", "primary-fixed-dim": "#ffb5a0", "on-secondary-container": "#314286", "error-container": "#ffdad6", "electric-orange": "#FF5722", "outline-variant": "#e4beb4", "tertiary": "#00628c", "tertiary-fixed": "#c8e6ff", "tertiary-container": "#007caf", "surface-tint": "#b02f00", "surface-container": "#f0eded", "on-error-container": "#93000a", "on-tertiary-fixed-variant": "#004c6d", "obsidian": "#333333", "surface-container-lowest": "#ffffff", "secondary-fixed": "#dde1ff", "inverse-on-surface": "#f3f0f0"}, "borderRadius": {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"}, "spacing": {"margin": "2rem", "space-lg": "1.5rem", "space-xl": "2.5rem", "space-sm": "0.5rem", "space-md": "1rem", "gutter": "1.5rem", "space-xs": "0.25rem"}, "fontFamily": {"body-md": ["Inter"], "label-md": ["Inter"], "body-lg": ["Inter"], "headline-xl": ["Outfit"], "body-sm": ["Inter"], "headline-sm": ["Outfit"], "headline-md": ["Outfit"], "headline-lg": ["Outfit"], "label-sm": ["Inter"]}, "fontSize": {"body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}], "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}], "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}], "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}], "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "500"}], "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}], "headline-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}]}}}};</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-surface font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-7xl mx-auto px-gutter flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="JOURNI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGMKuAxm0fEnW6Mk62d16vx6K4k5IkAyjQGkpYvFj3TFyCXx8sPdgCXTaKjFhvD7H5APmy3OhoV4ppBc9fXJN8FBSA3VlaMK3ijfhpwQFoTZ39AA_TM3IfmwzF2NlADZf03dB8Xhj3vY2egWxfNaoWoUeJxwkHtXUU08fMrbeb43--1E4M0Bm2AW0K75_LrNOclbmdOBUacsjL-f-IjCubIz64MZd0oPuB2wQPJPy3_6SlolLlz15yjzdvs6vhqm68lwc"/><span class="font-headline-md text-on-surface tracking-tight">JOURNI</span></div><nav class="hidden md:flex items-center gap-space-lg" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg"><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="#">Home</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="trip-planner" href="#">Trip Planner</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="itinerary" href="#">Itinerary</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="explore" href="#">Explore</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="saved-trips" href="#">Saved Trips</a></nav><div class="flex items-center gap-space-md"><a class="bg-primary text-on-primary px-space-md py-space-sm rounded-lg text-label-md font-label-md hover:bg-electric-orange hover:text-on-primary transition-all flex items-center gap-space-xs" data-path="trip-planner" href="#">Plan a Trip</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full relative">
+<!-- Underlay: Dimmed & Frosted Trip Planner Workspace Canvas -->
+<div class="w-full max-w-7xl mx-auto px-gutter py-space-xl opacity-35 filter blur-[3px] select-none pointer-events-none transition-all duration-700">
+<!-- Mock Trip Builder Dashboard Background -->
+<div class="flex items-center justify-between pb-space-lg">
+<div class="flex flex-col gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface">Kyoto Cultural Expedition</span>
+<div class="flex items-center gap-space-sm text-body-sm font-body-sm text-on-surface-variant">
+<span>Oct 14 – Oct 21, 2024</span>
+<span>•</span>
+<span>2 Travelers</span>
+<span>•</span>
+<span>Higashiyama Basecamp</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="h-10 px-space-md rounded-lg bg-surface-container flex items-center gap-space-xs text-on-surface-variant text-label-md font-label-md">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+          Preferences
+        </div>
+<div class="h-10 px-space-md rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+          Generate Itinerary
+        </div>
+</div>
+</div>
+<!-- Mock Grid of Trip Planning Elements -->
+<div class="grid grid-cols-12 gap-gutter pt-space-md">
+<!-- Left Column / Route Blocks -->
+<div class="col-span-8 flex flex-col gap-space-md">
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">Day 1: Arrival &amp; Historic Gion Exploration</span>
+<span class="px-space-sm py-space-xs rounded-full bg-surface-container text-label-sm font-label-sm text-on-surface-variant">6 Stops Planned</span>
+</div>
+<div class="grid grid-cols-3 gap-space-md">
+<div class="h-28 rounded-lg bg-surface-container p-space-md flex flex-col justify-between">
+<span class="text-label-sm font-label-sm text-primary">09:30 AM</span>
+<span class="text-body-md font-body-md text-on-surface font-medium truncate">Fushimi Inari Taisha</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">2.5 hrs • Cultural Walk</span>
+</div>
+<div class="h-28 rounded-lg bg-surface-container p-space-md flex flex-col justify-between">
+<span class="text-label-sm font-label-sm text-primary">01:00 PM</span>
+<span class="text-body-md font-body-md text-on-surface font-medium truncate">Nishiki Market Trail</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">1.5 hrs • Gastronomy</span>
+</div>
+<div class="h-28 rounded-lg bg-surface-container p-space-md flex flex-col justify-between">
+<span class="text-label-sm font-label-sm text-primary">04:00 PM</span>
+<span class="text-body-md font-body-md text-on-surface font-medium truncate">Kiyomizu-dera Sunset</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">2.0 hrs • Landmark</span>
+</div>
+</div>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">Day 2: Arashiyama Bamboo Groves &amp; Zen Temples</span>
+<span class="px-space-sm py-space-xs rounded-full bg-surface-container text-label-sm font-label-sm text-on-surface-variant">5 Stops Planned</span>
+</div>
+<div class="h-24 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant text-body-sm font-body-sm">
+            Routing and schedule optimization slots loaded...
+          </div>
+</div>
+</div>
+<!-- Right Column / Map Preview Placeholder -->
+<div class="col-span-4 flex flex-col gap-space-md">
+<div class="w-full h-80 rounded-xl bg-surface-container-high p-space-lg flex flex-col justify-between relative overflow-hidden" data-location="Kyoto, Japan" style="">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-highest/80 via-transparent to-transparent"></div>
+<div class="relative z-10 flex items-center justify-between">
+<span class="px-space-sm py-space-xs rounded-full bg-surface/80 backdrop-blur-md text-label-sm font-label-sm text-on-surface shadow-sm">Live Transit Matrix</span>
+<span class="material-symbols-outlined text-primary text-[20px]">near_me</span>
+</div>
+<div class="relative z-10 p-space-sm rounded-lg bg-surface/90 backdrop-blur-md flex items-center gap-space-sm text-body-sm font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary text-[18px]">hub</span>
+<span>Cluster 1: Higashiyama &amp; Central</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Focused Modal Overlay Layer -->
+<div class="fixed inset-0 top-16 z-40 flex items-center justify-center p-space-md md:p-space-lg bg-surface/60 backdrop-blur-md">
+<!-- Central Generative Engine Card -->
+<div class="w-full max-w-2xl bg-surface-container-lowest/95 backdrop-blur-xl rounded-xl shadow-xl flex flex-col overflow-hidden relative">
+<!-- Top Subtle Progress Bar (72%) -->
+<div class="w-full h-1.5 bg-surface-container-high relative overflow-hidden">
+<div class="h-full bg-primary-container rounded-full transition-all duration-1000 ease-out" style="width: 72%;"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-pulse"></div>
+</div>
+<div class="p-space-lg md:p-space-xl flex flex-col gap-space-lg">
+<!-- Modal Header with Logo & Dynamic AI Pulse -->
+<div class="flex items-start justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<!-- Pulsing Emblem Container -->
+<div class="relative flex items-center justify-center w-14 h-14 rounded-xl bg-surface-container-low shadow-sm overflow-hidden flex-shrink-0">
+<div class="absolute inset-0 rounded-xl bg-primary-container/15 animate-ping opacity-75"></div>
+<img alt="JOURNI Logo Mark" class="w-9 h-9 object-contain relative z-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYRlpSaG9O2X8G4n11LBXiLlERC4Qfw2p-FDBpPceSFrpXMWueuTA_Mrk0XzrGhfZ4GWfYwKZ_DMFidVq_AeQ4Tr82BQRaCSo0Jy4xKtWNd5oMSqu0IGoHaGNY3oxPVUJuqahXaLDMNibwI4crfXDvJAE3VI8feNxhYwvYYIQyx53VNScOVFCWq-iuezihCtqMYiMV_wQkcjKUr4ebcjS1pT0JC8M3cqmHDlc2SCArrlc4nOWK7KJssb__W-hSFk5QwJY"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold">Gemini 1.5 Reasoning Engine</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Curating Your Personalized Itinerary</h2>
+</div>
+</div>
+<!-- Percent Completion Badge -->
+<div class="hidden sm:flex flex-col items-end">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">72%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Step 4 of 5</span>
+</div>
+</div>
+<!-- Description Paragraph -->
+<p class="font-body-md text-body-md text-on-surface-variant">
+          JOURNI is applying multi-stage deterministic planning and Gemini reasoning to your travel preferences.
+        </p>
+<!-- Trip Context Meta Pill -->
+<div class="flex items-center gap-space-sm px-space-md py-space-sm rounded-full bg-surface-container text-body-sm font-body-sm text-on-surface flex-wrap">
+<span class="material-symbols-outlined text-primary text-[18px]">travel_explore</span>
+<span class="font-medium text-on-surface">7 Days in Kyoto, Japan</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant">2 Travelers</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant">Balanced Pace</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant">Culture &amp; Food</span>
+</div>
+<!-- Multi-Stage Planning Pipeline List -->
+<div class="flex flex-col gap-space-xs">
+<!-- Stage 1: Completed -->
+<div class="flex items-start gap-space-md p-space-sm rounded-lg bg-surface-container-low transition-all">
+<div class="mt-0.5 w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-medium">Stage 1: Understanding preferences</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">Complete</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+                Interests, budget, and walking tolerance mapped
+              </p>
+</div>
+</div>
+<!-- Stage 2: Completed -->
+<div class="flex items-start gap-space-md p-space-sm rounded-lg bg-surface-container-low transition-all">
+<div class="mt-0.5 w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-medium">Stage 2: Finding relevant places</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">Complete</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+                Querying 42 verified cultural &amp; culinary attractions
+              </p>
+</div>
+</div>
+<!-- Stage 3: Completed -->
+<div class="flex items-start gap-space-md p-space-sm rounded-lg bg-surface-container-low transition-all">
+<div class="mt-0.5 w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-medium">Stage 3: Organizing geographic route</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">Complete</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+                Minimizing transit distance and clustering by district
+              </p>
+</div>
+</div>
+<!-- Stage 4: In Progress (Active) -->
+<div class="flex items-start gap-space-md p-space-sm rounded-lg bg-primary-fixed/30 shadow-sm transition-all">
+<div class="mt-0.5 w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0">
+<svg class="animate-spin h-3.5 w-3.5 text-on-primary-container" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+<path class="opacity-75" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" fill="currentColor"></path>
+</svg>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Stage 4: Scheduling days</span>
+<span class="font-label-sm text-label-sm text-on-primary-fixed-variant font-bold flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-ping"></span>
+                  In Progress
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface truncate">
+                Assigning realistic opening hours, durations &amp; pacing
+              </p>
+<!-- Micro-Progress Indicator inside active item -->
+<div class="w-full h-1 bg-surface-container-high rounded-full mt-space-xs overflow-hidden">
+<div class="h-full bg-primary-container rounded-full animate-pulse" style="width: 65%;"></div>
+</div>
+</div>
+</div>
+<!-- Stage 5: Queued -->
+<div class="flex items-start gap-space-md p-space-sm rounded-lg bg-surface-container-lowest opacity-60 transition-all">
+<div class="mt-0.5 w-6 h-6 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Stage 5: Validating itinerary</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Queued</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+                Checking constraints and repairing potential time conflicts
+              </p>
+</div>
+</div>
+</div>
+<!-- Deterministic Scheduling Trust Callout -->
+<div class="flex items-start gap-space-sm p-space-md rounded-xl bg-surface-container-low text-on-surface">
+<span class="material-symbols-outlined text-secondary text-[20px] flex-shrink-0 mt-0.5">verified_user</span>
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-secondary">Deterministic Scheduling Guarantee</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Real geographical distance and verified venue constraints are prioritized over generative predictions.
+            </p>
+</div>
+</div>
+</div>
+<!-- Footer Micro-Stats Bar -->
+<div class="px-space-xl py-space-md bg-surface-container flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">memory</span>
+<span>42 Nodes Evaluated</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">timer</span>
+<span>Estimated wait: ~4s</span>
+</div>
+</div>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-container-low py-space-xl"><div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant text-body-sm"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-on-surface">JOURNI</span><span>© 2024 JOURNI Inc. All rights reserved.</span></div><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" href="#">Privacy</a><a class="hover:text-on-surface transition-colors" href="#">Terms</a><a class="hover:text-on-surface transition-colors" href="#">Support</a></div></div></footer></body></html>

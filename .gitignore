@@ -1,0 +1,54 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+ENV/
+.pytest_cache/
+.mypy_cache/
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Frontend
+node_modules/
+dist/
+build/
+.vite/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary / audit files
+audit_db*
+scratch/
+tmp/
+
+# Local database backups
+*.db.*
+*.sqlite.*
+*.sqlite3.*
+
+# Development scratch files
+backend/scratch_*.py
+# Large raw datasets - kept locally, not committed
+backend/data/raw/restaurants/*.csv
+backend/data/processed/restaurants.csv

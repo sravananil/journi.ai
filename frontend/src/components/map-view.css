@@ -1,0 +1,14 @@
+.maplibre-shell { position: relative; overflow: hidden; border-radius: 11px; border: 1px solid #e8e2de; }
+.maplibre-canvas { width: 100%; height: 430px; background: #f1eeeb; }
+.maplibre-shell .maplibregl-ctrl-attrib { font-size: 10px; }
+.journi-map-marker { display: grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 2px solid #fff; border-radius: 50%; color: white; background: var(--primary); box-shadow: 0 2px 7px rgba(39,27,20,.3); font: 700 11px Inter,sans-serif; cursor: pointer; }
+.journi-map-marker.meal { background: #536a54; }
+.map-empty-overlay { position: absolute; inset: 14px auto auto 14px; display: grid; gap: 4px; max-width: min(340px, calc(100% - 28px)); padding: 11px 13px; border: 1px solid rgba(144,112,103,.16); border-radius: 9px; background: rgba(255,255,255,.94); box-shadow: 0 3px 12px rgba(40,30,25,.1); }
+.map-empty-overlay strong { font-size: 11px; }.map-empty-overlay span,.map-disclaimer { color: #76675e; font-size: 9px; line-height: 1.5; }
+.map-error { margin: 9px 0 0; color: #a42d19; font-size: 10px; }
+.map-disclaimer { margin: 9px 0 0; }
+.map-stop-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 13px; }
+.map-stop { display: flex; align-items: center; gap: 7px; min-width: min(230px,100%); padding: 8px 10px; border: 1px solid #efe7e2; border-radius: 8px; background: #fffdfc; }
+.map-stop > span { display: grid; place-items: center; flex: none; width: 21px; height: 21px; border-radius: 50%; color: white; background: var(--primary); font-size: 9px; font-weight: 700; }
+.map-stop > span.meal { background: #536a54; }.map-stop strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 10px; }.map-stop small { margin-left: auto; color: #76675e; font-size: 9px; }
+@media (max-width: 680px) { .maplibre-canvas { height: 340px; } }

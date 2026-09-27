@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><title>Itinerary Dashboard &amp; AI Refinement - JOURNI</title><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {"colors": {"secondary-container": "#a2b2fe", "surface-bright": "#fbf9f8", "surface-container-low": "#f6f3f2", "on-tertiary-container": "#fcfcff", "background": "#fbf9f8", "inverse-surface": "#303030", "primary-container": "#ff5722", "surface-container-highest": "#e4e2e1", "on-tertiary": "#ffffff", "on-surface": "#1b1c1c", "surface-container-high": "#eae8e7", "inverse-primary": "#ffb5a0", "primary-fixed": "#ffdbd1", "tertiary-fixed-dim": "#86cfff", "secondary": "#495a9f", "on-tertiary-fixed": "#001e2e", "surface": "#fbf9f8", "on-secondary-fixed-variant": "#314286", "on-primary-fixed-variant": "#862200", "on-primary-fixed": "#3b0900", "on-background": "#1b1c1c", "on-primary": "#ffffff", "on-error": "#ffffff", "on-secondary": "#ffffff", "on-secondary-fixed": "#001454", "secondary-fixed-dim": "#b8c4ff", "surface-variant": "#e4e2e1", "primary": "#b02f00", "outline": "#907067", "on-primary-container": "#541200", "on-surface-variant": "#5b4039", "error": "#ba1a1a", "surface-gray": "#EEEEEE", "surface-dim": "#dcd9d9", "deep-indigo": "#334488", "primary-fixed-dim": "#ffb5a0", "on-secondary-container": "#314286", "error-container": "#ffdad6", "electric-orange": "#FF5722", "outline-variant": "#e4beb4", "tertiary": "#00628c", "tertiary-fixed": "#c8e6ff", "tertiary-container": "#007caf", "surface-tint": "#b02f00", "surface-container": "#f0eded", "on-error-container": "#93000a", "on-tertiary-fixed-variant": "#004c6d", "obsidian": "#333333", "surface-container-lowest": "#ffffff", "secondary-fixed": "#dde1ff", "inverse-on-surface": "#f3f0f0"}, "borderRadius": {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"}, "spacing": {"margin": "2rem", "space-lg": "1.5rem", "space-xl": "2.5rem", "space-sm": "0.5rem", "space-md": "1rem", "gutter": "1.5rem", "space-xs": "0.25rem"}, "fontFamily": {"body-md": ["Inter"], "label-md": ["Inter"], "body-lg": ["Inter"], "headline-xl": ["Outfit"], "body-sm": ["Inter"], "headline-sm": ["Outfit"], "headline-md": ["Outfit"], "headline-lg": ["Outfit"], "label-sm": ["Inter"]}, "fontSize": {"body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}], "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}], "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}], "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}], "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "500"}], "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}], "headline-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}]}}}};</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/></head><body class="bg-surface font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-7xl mx-auto px-gutter flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="JOURNI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVe9okxdpbzPFXonlzc3VTPrb0ezHlJW15iSDKooMyHY9GOfE9Q36FwKhS5KRy8Faw2gSBhRlOGBXJD-Jufcrqk-Wk0Py_0PW0CxkAh_jJsVLZW1KQB6mV-AYJL6H-PP4NUxkB6rnABRlJvdYCi7i72T7OGPLYSwuAJ-fuYQ3PfXOQLKkkIwA2ZoikZ0tyy_9D1sVypKDr0WpW1W4xdp-2VgUv9rXSgUO1hbcpTtC0tediVmASKo7lJSxboK2RY0HHcsA"/><span class="font-headline-md text-on-surface tracking-tight">JOURNI</span></div><nav class="hidden md:flex items-center gap-space-lg" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg"><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="#">Home</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="trip-planner" href="#">Trip Planner</a><a aria-current="page" class="transition-colors bg-primary-container text-on-primary-container font-bold rounded-lg" data-path="itinerary" href="#">Itinerary</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="explore" href="#">Explore</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="saved-trips" href="#">Saved Trips</a></nav><div class="flex items-center gap-space-md"><a class="bg-primary text-on-primary px-space-md py-space-sm rounded-lg text-label-md font-label-md hover:bg-electric-orange hover:text-on-primary transition-all flex items-center gap-space-xs" data-path="trip-planner" href="#">Plan a Trip</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">explore</span></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Top Control Bar / Dashboard Header -->
+<div class="w-full bg-surface-container-low border-b border-outline-variant/20 py-space-md px-gutter">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-14 h-14 rounded-xl bg-primary text-on-primary flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[32px]">temple_buddhist</span>
+</div>
+<div>
+<div class="flex items-center gap-space-sm">
+<span class="text-label-sm font-label-sm text-primary uppercase tracking-wider bg-primary-fixed/50 px-space-xs py-0.5 rounded">AI Optimized</span>
+<span class="text-body-sm text-on-surface-variant">7 Days • 2 Travelers • Kyoto, Japan</span>
+</div>
+<h1 class="font-headline-lg text-on-surface tracking-tight">Kyoto Heritage &amp; Modern Zen</h1>
+</div>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="bg-surface-container-highest hover:bg-surface-dim text-on-surface px-space-md py-space-sm rounded-lg text-label-md font-label-md transition-all flex items-center gap-space-xs" id="viewToggleBtn" onclick="toggleView()">
+<span class="material-symbols-outlined text-[18px]">map</span>
+<span>Switch to Map View</span>
+</button>
+<button class="bg-surface-container-highest hover:bg-surface-dim text-on-surface px-space-md py-space-sm rounded-lg text-label-md font-label-md transition-all flex items-center gap-space-xs" onclick="openExportModal()">
+<span class="material-symbols-outlined text-[18px]">ios_share</span>
+<span>Export</span>
+</button>
+<button class="bg-primary text-on-primary hover:bg-electric-orange px-space-md py-space-sm rounded-lg text-label-md font-label-md transition-all flex items-center gap-space-xs shadow-sm" onclick="runAiOptimization()">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+<span>AI Re-Optimize</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Main Content Layout -->
+<div class="max-w-7xl mx-auto px-gutter py-space-xl w-full grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+<!-- Left Column: Day Selector & AI Insights (4 Cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- AI Insight Card -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-sm relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center gap-space-sm text-primary mb-space-sm">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<span class="font-headline-sm text-on-surface text-[18px]">JOURNI Insights</span>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-space-md">
+          Route optimized for low foot-traffic. Cherry blossom peaks expected around Day 3 in Arashiyama. Estimated total trip cost: <strong class="text-on-surface">¥185,000</strong> per person.
+        </p>
+<div class="space-y-space-xs">
+<div class="flex justify-between text-label-sm text-on-surface-variant">
+<span>Pace: Balanced Cultural</span>
+<span class="text-primary font-bold">84% Match</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 84%"></div>
+</div>
+</div>
+</div>
+<!-- Day Navigation List -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-sm">
+<div class="text-label-md font-label-md text-on-surface-variant mb-space-sm px-space-xs">Select Day</div>
+<div class="flex flex-col gap-space-xs" id="daySelectorContainer">
+<button class="day-btn flex items-center justify-between p-space-md rounded-lg transition-all bg-primary text-on-primary shadow-sm" data-day="1" onclick="switchDay(1)">
+<div class="flex items-center gap-space-md">
+<span class="font-headline-sm text-[16px]">Day 1</span>
+<span class="text-body-sm opacity-90">Arrival &amp; Gion Evening</span>
+</div>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+<button class="day-btn flex items-center justify-between p-space-md rounded-lg transition-all hover:bg-surface-container text-on-surface" data-day="2" onclick="switchDay(2)">
+<div class="flex items-center gap-space-md">
+<span class="font-headline-sm text-[16px]">Day 2</span>
+<span class="text-body-sm text-on-surface-variant">Eastern Kyoto &amp; Temples</span>
+</div>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+<button class="day-btn flex items-center justify-between p-space-md rounded-lg transition-all hover:bg-surface-container text-on-surface" data-day="3" onclick="switchDay(3)">
+<div class="flex items-center gap-space-md">
+<span class="font-headline-sm text-[16px]">Day 3</span>
+<span class="text-body-sm text-on-surface-variant">Arashiyama Bamboo &amp; Monkeys</span>
+</div>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+<button class="day-btn flex items-center justify-between p-space-md rounded-lg transition-all hover:bg-surface-container text-on-surface" data-day="4" onclick="switchDay(4)">
+<div class="flex items-center gap-space-md">
+<span class="font-headline-sm text-[16px]">Day 4</span>
+<span class="text-body-sm text-on-surface-variant">Fushimi Inari &amp; Uji Matcha</span>
+</div>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+<button class="day-btn flex items-center justify-between p-space-md rounded-lg transition-all hover:bg-surface-container text-on-surface" data-day="5" onclick="switchDay(5)">
+<div class="flex items-center gap-space-md">
+<span class="font-headline-sm text-[16px]">Day 5</span>
+<span class="text-body-sm text-on-surface-variant">Nijo Castle &amp; Nishiki Market</span>
+</div>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+<button class="day-btn flex items-center justify-between p-space-md rounded-lg transition-all hover:bg-surface-container text-on-surface" data-day="6" onclick="switchDay(6)">
+<div class="flex items-center gap-space-md">
+<span class="font-headline-sm text-[16px]">Day 6</span>
+<span class="text-body-sm text-on-surface-variant">Northern Zen Gardens</span>
+</div>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+<button class="day-btn flex items-center justify-between p-space-md rounded-lg transition-all hover:bg-surface-container text-on-surface" data-day="7" onclick="switchDay(7)">
+<div class="flex items-center gap-space-md">
+<span class="font-headline-sm text-[16px]">Day 7</span>
+<span class="text-body-sm text-on-surface-variant">Kinkaku-ji &amp; Departure</span>
+</div>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Quick Accommodation & Budget Summary -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant">Base Accommodation</span>
+<span class="text-label-sm font-label-sm text-primary bg-primary-fixed/50 px-2 py-0.5 rounded-full">Reserved</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-cover bg-center shrink-0" data-alt="A tranquil traditional Kyoto ryokan room with tatami mats, low wooden table, sliding shoji screens, and soft warm ambient lighting overlooking a private zen rock garden." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD25DdwxWYAjfdjXfnDuj_4QZTkGO2kGIwOY6BZyjFVBDs8stAeYsPSqqVlPEdRU2tVAhI8uKOCcslJSSvvHLtIgEHQDOPYIj-VFWZI4xNIHWYrX7SMZ5IIqOzhmVy0D-LeEwKOcvt1C737J8_eSeH2e3M60f2pWGSXjfBYLzLp3ZyBDkVZYqmcnxiRkVDUPRnzA1JseuGnibBEBPbc29gVohPDbJgSdEPEacYmpvBzfLg84fA2eCGsMw')"></div>
+<div>
+<h4 class="font-headline-sm text-[16px] text-on-surface">The Thousand Kyoto</h4>
+<p class="text-body-sm text-on-surface-variant">Station-adjacent • Modern Minimalist</p>
+</div>
+</div>
+<div class="border-t border-outline-variant/20 pt-space-md flex items-center justify-between">
+<span class="text-body-sm text-on-surface-variant">Estimated Daily Expense</span>
+<span class="font-headline-sm text-[18px] text-on-surface">¥26,400 / day</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Timeline & Map View Container (8 Cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Interactive View Mode Switcher Panel (Timeline vs Map) -->
+<div class="flex flex-col gap-space-lg" id="timelineViewContainer">
+<!-- Day Header Banner -->
+<div class="bg-surface-container p-space-md rounded-xl mb-space-md flex flex-col gap-space-sm border border-primary/20"><div class="flex items-center justify-between"><div class="flex items-center gap-space-sm text-primary"><span class="material-symbols-outlined text-[20px]">auto_awesome</span><span class="font-headline-sm text-[16px] text-on-surface">Ask JOURNI to Refine Trip</span></div><button class="text-label-sm text-primary underline" onclick="alert('Pipeline: Candidate Retrieval -&gt; Hard Constraints -&gt; Scoring -&gt; Geographic Planning -&gt; Scheduling -&gt; Validation')">View Pipeline Steps</button></div><div class="flex gap-space-sm"><input class="flex-1 bg-surface border border-outline-variant/30 rounded-lg px-space-md py-2 text-body-sm text-on-surface focus:outline-none focus:border-primary" id="refinePromptInput" placeholder="e.g., Make Day 3 more relaxed or Add two more days..." type="text"/><button class="bg-primary text-on-primary px-space-md py-2 rounded-lg text-label-md font-label-md hover:bg-electric-orange transition-colors" onclick="alert('JOURNI is re-planning based on your prompt!')">Refine</button></div></div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between bg-surface-container-low p-space-lg rounded-xl shadow-sm gap-space-md">
+<div>
+<div class="text-label-md font-label-md text-primary uppercase tracking-wider">Day 1 Itinerary</div>
+<h2 class="font-headline-md text-on-surface">Welcome to Kyoto &amp; Gion Evening Stroll</h2>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="text-body-sm text-on-surface-variant bg-surface-container-highest px-3 py-1 rounded-lg">3 Activities</span>
+<span class="text-body-sm text-on-surface-variant bg-surface-container-highest px-3 py-1 rounded-lg">1 Meal Rec</span>
+</div>
+</div>
+<!-- Activity Cards Timeline -->
+<div class="flex flex-col gap-space-md relative pl-4 before:absolute before:left-8 before:top-4 before:bottom-4 before:w-0.5 before:bg-outline-variant/30" id="activityList">
+<!-- Morning Activity -->
+<div class="relative pl-8 group">
+<div class="absolute left-6 -translate-x-1/2 top-4 w-4 h-4 rounded-full bg-primary ring-4 ring-surface shadow-sm"></div>
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="bg-primary-container text-on-primary-container px-2.5 py-0.5 rounded-full text-label-sm font-label-sm">09:00 AM - 11:30 AM</span>
+<span class="text-body-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> 2h 30m</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="p-2 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" onclick="swapActivity(this)" title="Swap Activity">
+<span class="material-symbols-outlined text-[18px]">swap_vert</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" onclick="editActivity(this)" title="Edit Activity">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md items-center">
+<div class="md:col-span-2 flex flex-col gap-space-xs">
+<h3 class="font-headline-sm text-on-surface text-[20px]">Arrival &amp; Hotel Check-in</h3>
+<p class="text-body-sm text-on-surface-variant">Arrive via Shinkansen from Tokyo. Seamless luggage forwarding drop-off at station counter and walk 3 minutes to The Thousand Kyoto Hotel.</p>
+<div class="flex items-center gap-space-md mt-space-xs text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">location_on</span> Kyoto Station Area</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">payments</span> Free (Included)</span>
+</div>
+</div>
+<div class="h-32 rounded-lg bg-cover bg-center shadow-inner" data-alt="A sleek modern bullet train pulling into Kyoto station platform with clean minimalist architecture and soft natural morning light reflecting off glass panels." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAxwYvHtleiazr6EhNLDEhYSjBnOA8JOZriD8T8aO9ghN91kEcba75yZGEDPg2BAhmB8wBzUbV2OnNuYJH-k3LHOgQv4W5pgit4lk2o6mG6D9X7-4jd4rLIkJDHeRMNsE1nCBpdQJ_nACwVj1EXy4z4w-8Q2QT3cX_ukKeMjvzAdVXPeIJAe_HghTcZBoGH_FKLOwdH-QUgH_YtBH9eXuApH48Nuw7OOSR5UaThyyf7tTKAUWS8cGuc5A')"></div>
+</div>
+</div>
+</div>
+<!-- Travel Time Indicator -->
+<div class="relative pl-8 my-1">
+<div class="flex items-center gap-space-sm text-body-sm text-on-surface-variant bg-surface-container/60 py-1 px-3 rounded-lg w-fit">
+<span class="material-symbols-outlined text-[16px]">directions_walk</span>
+<span>15 min walk through city promenade</span>
+</div>
+</div>
+<!-- Afternoon Activity -->
+<div class="relative pl-8 group">
+<div class="absolute left-6 -translate-x-1/2 top-4 w-4 h-4 rounded-full bg-tertiary ring-4 ring-surface shadow-sm"></div>
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="bg-tertiary-container text-on-tertiary-container px-2.5 py-0.5 rounded-full text-label-sm font-label-sm">01:30 PM - 04:00 PM</span>
+<span class="text-body-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> 2h 30m</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="p-2 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" onclick="swapActivity(this)" title="Swap Activity">
+<span class="material-symbols-outlined text-[18px]">swap_vert</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" onclick="editActivity(this)" title="Edit Activity">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md items-center">
+<div class="md:col-span-2 flex flex-col gap-space-xs">
+<h3 class="font-headline-sm text-on-surface text-[20px]">Higashiyama Historic District Stroll</h3>
+<p class="text-body-sm text-on-surface-variant">Explore preserved traditional wooden merchant streets, stone-paved alleys, and iconic hillside pagoda views. Perfect lighting for street photography.</p>
+<div class="flex items-center gap-space-md mt-space-xs text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-tertiary">location_on</span> Higashiyama-ku</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-tertiary">payments</span> ¥500 entry</span>
+</div>
+</div>
+<div class="h-32 rounded-lg bg-cover bg-center shadow-inner" data-alt="Traditional Japanese preserved historic wooden two-story buildings lining a narrow stone-paved street in Higashiyama Kyoto with a towering ancient pagoda in the background under soft afternoon sun." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBpKkkYWSR5cSP3NV9yL4ZG7YOF9BtkuUT02qfCohb-tK-hHdDjtCqIExMcoL8gKy66Hci9hFW8543Lg8O_KiWg4XmbqK41XD4bWKrh878taQdw4D2gYVjw2Yret_OF6RFYERiOS5_mVOcVHgvPuk_zbePbkbFV710UuBC2iW3y7VIV-7-WGVJK54g0Jfcom_D8lB_8B_w6FXn8MMWsIwk3BiB7471Qnys08LCfAwZcPWJFoNgRaidHUw')"></div>
+</div>
+</div>
+</div>
+<!-- Meal Recommendation -->
+<div class="relative pl-8 my-2">
+<div class="bg-surface-container-highest/60 rounded-xl p-space-md flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">restaurant</span>
+</div>
+<div>
+<div class="text-label-sm font-label-sm text-secondary">Dinner Recommendation • 06:30 PM</div>
+<h4 class="font-headline-sm text-[16px] text-on-surface">Gion Karyo (Kaiseki Dining)</h4>
+<p class="text-body-sm text-on-surface-variant">Exquisite multi-course seasonal dining in a restored historic townhouse.</p>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="text-label-md font-label-md text-on-surface">¥12,000 /p.p.</span>
+<div class="text-label-sm text-primary">Table Booked</div>
+</div>
+</div>
+</div>
+<!-- Evening Activity -->
+<div class="relative pl-8 group">
+<div class="absolute left-6 -translate-x-1/2 top-4 w-4 h-4 rounded-full bg-secondary ring-4 ring-surface shadow-sm"></div>
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="bg-secondary-container text-on-secondary-container px-2.5 py-0.5 rounded-full text-label-sm font-label-sm">08:00 PM - 10:00 PM</span>
+<span class="text-body-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> 2h 00m</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="p-2 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" onclick="swapActivity(this)" title="Swap Activity">
+<span class="material-symbols-outlined text-[18px]">swap_vert</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" onclick="editActivity(this)" title="Edit Activity">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md items-center">
+<div class="md:col-span-2 flex flex-col gap-space-xs">
+<h3 class="font-headline-sm text-on-surface text-[20px]">Gion District &amp; Shirakawa Canal</h3>
+<p class="text-body-sm text-on-surface-variant">Evening stroll along the willow-lined Shirakawa canal, glowing red lanterns, and traditional machiya teahouses. Chance spotting of Geiko in training.</p>
+<div class="flex items-center gap-space-md mt-space-xs text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">location_on</span> Gion district</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">payments</span> Free</span>
+</div>
+</div>
+<div class="h-32 rounded-lg bg-cover bg-center shadow-inner" data-alt="A serene Kyoto canal at night reflecting glowing paper lanterns and traditional wooden teahouses with willow branches swaying softly in the breeze." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDduIsmtCD9UXnIL2PqG9ihx5eRvJCTJh83VtuIMRkrGz__lzS0l7-pTZgmY9NKhofCBvRFqm8sLdO7Gx--jVDZ4xhh4br9MMZlz9dc06BYQM8z4EEVhQDPOhbwOrraABH7mo5jnRmkyE7Rl840TiBraJHjr3mM8duAfeOtvOggMw9YLStbSRtmERlyonKtdu2SCxi3eEejPMiQkgwhji1Xq5uCvoYteo_7x-Oy1_FZ5BBDhp8AnBiOcg')"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Map View Container (Hidden by default) -->
+<div class="hidden flex flex-col gap-space-md" id="mapViewContainer">
+<div class="w-full h-[520px] rounded-xl overflow-hidden shadow-sm relative">
+<div class="w-full h-full bg-cover bg-center" data-location="Kyoto, Japan" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBHJFwySjgFxwdSf15UVwGOadV_igXB_cQAXwjt-00ByQ8GWYkl3455E9v-qqQ7CYrTe03VDWB9t7YbQo1CsS7c-_DwboMsbtM4Ju4RpLzr8X5x_xYZ926THwNfp43G2zk1k9l6QaVl30MFP-fuN2VefmLOx8guSQkSU--ANp_m_bfrIYa5rJpawvMYep7K5BDyC567Yv2BvAxC7cPhbgGHyqbnCvJ_mxGkiQjJSxJqgB2YhuPbgklC8A')"></div>
+<div class="absolute bottom-4 left-4 right-4 bg-surface/90 backdrop-blur-md p-space-md rounded-xl shadow-lg flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-primary text-on-primary flex items-center justify-center font-bold">1</div>
+<div>
+<h4 class="font-headline-sm text-[16px] text-on-surface">Day 1 Route Map</h4>
+<p class="text-body-sm text-on-surface-variant">Kyoto Station → Higashiyama → Gion Canal</p>
+</div>
+</div>
+<span class="text-label-md font-label-md text-primary bg-primary-fixed px-3 py-1.5 rounded-lg">Interactive GPS Active</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Export Modal (Hidden) -->
+<div class="fixed inset-0 z-50 bg-obsidian/40 backdrop-blur-sm flex items-center justify-center hidden" id="exportModal">
+<div class="bg-surface-container-low rounded-xl p-space-xl max-w-md w-full shadow-2xl flex flex-col gap-space-lg mx-gutter">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-on-surface">Export Itinerary</h3>
+<button class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-dim flex items-center justify-center text-on-surface" onclick="closeExportModal()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-sm">
+<button class="flex items-center gap-space-md p-space-md rounded-lg bg-surface-container-highest hover:bg-surface-dim transition-all text-left" onclick="alert('Exported to PDF successfully!')">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[16px] text-on-surface">PDF Itinerary</h4>
+<p class="text-body-sm text-on-surface-variant">Print-ready day-by-day itinerary with maps and tickets.</p>
+</div>
+</button>
+<button class="flex items-center gap-space-md p-space-md rounded-lg bg-surface-container-highest hover:bg-surface-dim transition-all text-left" onclick="alert('Synced with Apple/Google Calendar!')">
+<div class="w-10 h-10 rounded-lg bg-tertiary-container text-on-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined">calendar_month</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[16px] text-on-surface">Calendar Sync</h4>
+<p class="text-body-sm text-on-surface-variant">Add all activities and timings directly to your calendar.</p>
+</div>
+</button>
+</div>
+<button class="w-full bg-primary text-on-primary py-space-sm rounded-lg text-label-md font-label-md text-center" onclick="closeExportModal()">Done</button>
+</div>
+</div>
+<!-- Swap Activity Modal (Hidden) -->
+<div class="fixed inset-0 z-50 bg-obsidian/40 backdrop-blur-sm flex items-center justify-center hidden" id="swapModal">
+<div class="bg-surface-container-low rounded-xl p-space-xl max-w-lg w-full shadow-2xl flex flex-col gap-space-lg mx-gutter">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-on-surface">AI Activity Alternatives</h3>
+<button class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-dim flex items-center justify-center text-on-surface" onclick="closeSwapModal()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<p class="text-body-sm text-on-surface-variant">Select an alternative AI-suggested activity to instantly replace this slot.</p>
+<div class="flex flex-col gap-space-md">
+<div class="p-space-md rounded-lg bg-surface-container-highest hover:bg-primary-fixed/30 cursor-pointer border border-transparent hover:border-primary transition-all flex items-center justify-between" onclick="selectSwapOption('Kyoto National Museum')">
+<div>
+<h4 class="font-headline-sm text-[16px] text-on-surface">Kyoto National Museum</h4>
+<p class="text-body-sm text-on-surface-variant">Meiji-era European-style hall housing classical Japanese art.</p>
+</div>
+<span class="text-label-md text-primary font-bold">Select</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-highest hover:bg-primary-fixed/30 cursor-pointer border border-transparent hover:border-primary transition-all flex items-center justify-between" onclick="selectSwapOption('Sanjusangen-do Temple')">
+<div>
+<h4 class="font-headline-sm text-[16px] text-on-surface">Sanjusangen-do Temple</h4>
+<p class="text-body-sm text-on-surface-variant">Famous for its 1,001 life-sized statues of Kannon.</p>
+</div>
+<span class="text-label-md text-primary font-bold">Select</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+    let isMapView = false;
+    function toggleView() {
+      isMapView = !isMapView;
+      const timeline = document.getElementById('timelineViewContainer');
+      const map = document.getElementById('mapViewContainer');
+      const btn = document.getElementById('viewToggleBtn');
+      if (isMapView) {
+        timeline.classList.add('hidden');
+        map.classList.remove('hidden');
+        btn.innerHTML = '<span class="material-symbols-outlined text-[18px]">view_agenda</span><span>Switch to Timeline</span>';
+      } else {
+        map.classList.add('hidden');
+        timeline.classList.remove('hidden');
+        btn.innerHTML = '<span class="material-symbols-outlined text-[18px]">map</span><span>Switch to Map View</span>';
+      }
+    }
+
+    function switchDay(dayNum) {
+      const buttons = document.querySelectorAll('.day-btn');
+      buttons.forEach(b => {
+        b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+        b.classList.add('hover:bg-surface-container', 'text-on-surface');
+      });
+      const activeBtn = document.querySelector(`[data-day="${dayNum}"]`);
+      if (activeBtn) {
+        activeBtn.classList.remove('hover:bg-surface-container', 'text-on-surface');
+        activeBtn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+      }
+      // Simulating day title update
+      const titles = {
+        1: "Welcome to Kyoto & Gion Evening Stroll",
+        2: "Eastern Kyoto & Historic Temples",
+        3: "Arashiyama Bamboo Grove & Monkey Park",
+        4: "Fushimi Inari Shrine & Uji Matcha Tour",
+        5: "Nijo Castle & Nishiki Food Market",
+        6: "Northern Zen Gardens & Philosopher's Path",
+        7: "Kinkaku-ji Golden Pavilion & Departure"
+      };
+      const headerTitle = document.querySelector('#timelineViewContainer h2');
+      if(headerTitle && titles[dayNum]) {
+        headerTitle.textContent = titles[dayNum];
+      }
+      const dayLabel = document.querySelector('#timelineViewContainer .text-primary.uppercase');
+      if(dayLabel) {
+        dayLabel.textContent = `Day ${dayNum} Itinerary`;
+      }
+    }
+
+    function openExportModal() {
+      document.getElementById('exportModal').classList.remove('hidden');
+    }
+    function closeExportModal() {
+      document.getElementById('exportModal').classList.add('hidden');
+    }
+
+    function swapActivity(el) {
+      document.getElementById('swapModal').classList.remove('hidden');
+    }
+    function closeSwapModal() {
+      document.getElementById('swapModal').classList.add('hidden');
+    }
+    function selectSwapOption(name) {
+      closeSwapModal();
+      alert(`Activity successfully swapped to: ${name}! Route re-optimized.`);
+    }
+
+    function editActivity(el) {
+      alert("Opening activity editor panel...");
+    }
+
+    function runAiOptimization() {
+      const btn = event.currentTarget;
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span><span>Optimizing...</span>';
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        alert("JOURNI successfully re-optimized crowd flow and transit timings for all 7 days!");
+      }, 1200);
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-low py-space-xl"><div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant text-body-sm"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-on-surface">JOURNI</span><span>© 2024 JOURNI Inc. All rights reserved.</span></div><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" href="#">Privacy</a><a class="hover:text-on-surface transition-colors" href="#">Terms</a><a class="hover:text-on-surface transition-colors" href="#">Support</a></div></div></footer></body></html>
