@@ -19,11 +19,14 @@ import os
 import sys
 import json
 import logging
+from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-load_dotenv()
+BACKEND_DIR = Path(__file__).resolve().parents[2]
+PROCESSED_DIR = BACKEND_DIR / "data" / "processed"
+sys.path.insert(0, str(BACKEND_DIR))
+load_dotenv(dotenv_path=BACKEND_DIR / ".env")
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -34,19 +37,6 @@ from app.models.restaurant import Restaurant
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
-
-DATABASE_URL = os.environ.get("DATABASE_URL")
-if not DATABASE_URL:
-    raise RuntimeError("DATABASE_URL not set. Check backend/.env")
-
-PROCESSED_DIR = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
-    "data", "processed"
-)
-
-engine = create_engine(DATABASE_URL, pool_pre_ping=True)
-Session = sessionmaker(bind=engine)
-
 
 def _parse_json_col(val):
     """Safely parse a JSON-string column to a Python object (or None)."""
@@ -91,7 +81,7 @@ def _safe_str(val):
 # ─── Cities ───────────────────────────────────────────────────────────────────
 
 def load_cities(session):
-    path = os.path.join(PROCESSED_DIR, "cities.csv")
+    path = PROCESSED_DIR / "cities.csv"
     df = pd.read_csv(path, encoding="utf-8")
     
     session.query(City).delete()
@@ -124,7 +114,7 @@ def load_cities(session):
 # ─── Destinations ─────────────────────────────────────────────────────────────
 
 def load_destinations(session):
-    path = os.path.join(PROCESSED_DIR, "destinations.csv")
+    path = PROCESSED_DIR / "destinations.csv"
     df = pd.read_csv(path, encoding="utf-8")
     
     session.query(Destination).delete()
@@ -176,7 +166,7 @@ def load_destinations(session):
 # ─── Places ───────────────────────────────────────────────────────────────────
 
 def load_places(session):
-    path = os.path.join(PROCESSED_DIR, "places.csv")
+    path = PROCESSED_DIR / "places.csv"
     df = pd.read_csv(path, encoding="utf-8")
     
     # Preserve JOURNI Curated (legacy Goa) rows — delete only canonical rows
@@ -225,7 +215,13 @@ def load_places(session):
 # ─── Restaurants ──────────────────────────────────────────────────────────────
 
 def load_restaurants(session):
-    path = os.path.join(PROCESSED_DIR, "restaurants.csv")
+    path = PROCESSED_DIR / "restaurants.csv"
+    if not path.is_file():
+        logger.info(
+            "Restaurants: skipped — optional dataset not present (%s)",
+            path.name,
+        )
+        return None
     
     logger.info("Clearing existing restaurants...")
     session.query(Restaurant).delete()
@@ -279,20 +275,27 @@ def verify_counts(session):
         "cities":      (3000, 3600),
         "destinations": (95, 110),
         "places":       (1000, 1100),
-        "restaurants":  (130000, 145000),
     }
     counts = {
         "cities":       session.query(City).count(),
         "destinations": session.query(Destination).count(),
         "places":       session.query(Place).count(),
-        "restaurants":  session.query(Restaurant).count(),
     }
+    restaurants_path = PROCESSED_DIR / "restaurants.csv"
+    if restaurants_path.is_file():
+        counts["restaurants"] = session.query(Restaurant).count()
+        expected["restaurants"] = (130000, 145000)
+    else:
+        counts["restaurants"] = None
     
     print("\n" + "=" * 55)
     print("RECORD COUNT VERIFICATION")
     print("=" * 55)
     all_ok = True
     for table, count in counts.items():
+        if count is None:
+            print("  -- Restaurants: skipped — optional dataset not present")
+            continue
         lo, hi = expected[table]
         ok = lo <= count <= hi
         status = "OK" if ok else "!!"
@@ -307,7 +310,12 @@ def verify_counts(session):
 
 def main():
     logger.info("Starting JOURNI canonical data load to PostgreSQL...")
-    
+    database_url = os.environ.get("DATABASE_URL")
+    if not database_url:
+        raise RuntimeError("DATABASE_URL not set. Check backend/.env")
+
+    engine = create_engine(database_url, pool_pre_ping=True)
+    Session = sessionmaker(bind=engine)
     session = Session()
     try:
         # Load each table in its own flush cycle (single transaction)
@@ -322,10 +330,13 @@ def main():
         ok, counts = verify_counts(session)
         
         print(f"\nLoad complete:")
-        print(f"  Cities:       {city_count:>8,d}")
-        print(f"  Destinations: {dest_count:>8,d}")
-        print(f"  Places:       {place_count:>8,d}")
-        print(f"  Restaurants:  {rest_count:>8,d}")
+        print(f"  Loaded cities:       {city_count:>8,d}")
+        print(f"  Loaded destinations: {dest_count:>8,d}")
+        print(f"  Loaded places:       {place_count:>8,d}")
+        if rest_count is None:
+            print("  Restaurants: skipped — optional dataset not present")
+        else:
+            print(f"  Loaded restaurants:  {rest_count:>8,d}")
         
         if not ok:
             print("\n  NOTE: Some counts outside expected range — see PHASE_7_TASK_2_REPORT.md")
@@ -336,6 +347,7 @@ def main():
         raise
     finally:
         session.close()
+        engine.dispose()
 
 
 if __name__ == "__main__":
