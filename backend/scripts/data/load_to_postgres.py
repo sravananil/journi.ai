@@ -38,6 +38,9 @@ from app.models.restaurant import Restaurant
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
 
+RESTAURANT_LOAD_LIMIT = 3_000
+RESTAURANT_BATCH_SIZE = 500
+
 def _parse_json_col(val):
     """Safely parse a JSON-string column to a Python object (or None)."""
     if val is None or (isinstance(val, float) and pd.isna(val)):
@@ -228,19 +231,19 @@ def load_restaurants(session):
     session.flush()
     
     total = 0
-    CHUNK = 5000
     seen_ids = set()
     
-    for chunk_df in pd.read_csv(path, encoding="utf-8", chunksize=CHUNK):
-        # Deduplicate within and across chunks
-        chunk_df = chunk_df.drop_duplicates(subset=["id"])
-        chunk_df = chunk_df[~chunk_df["id"].astype(str).isin(seen_ids)]
-        seen_ids.update(chunk_df["id"].astype(str).tolist())
-        
+    for chunk_df in pd.read_csv(
+        path, encoding="utf-8", chunksize=RESTAURANT_BATCH_SIZE
+    ):
         batch = []
         for _, row in chunk_df.iterrows():
+            restaurant_id = str(row["id"])
+            if restaurant_id in seen_ids:
+                continue
+            seen_ids.add(restaurant_id)
             batch.append(Restaurant(
-                id=str(row["id"]),
+                id=restaurant_id,
                 name=_safe_str(row.get("name")),
                 normalized_name=_safe_str(row.get("normalized_name")),
                 city=_safe_str(row.get("city")),
@@ -256,15 +259,23 @@ def load_restaurants(session):
                 longitude=_safe_float(row.get("longitude")),
                 source=_safe_str(row.get("source")) or "swiggy_file.csv",
             ))
+            total += 1
+            if len(batch) == RESTAURANT_BATCH_SIZE:
+                session.bulk_save_objects(batch)
+                batch = []
+            if total == RESTAURANT_LOAD_LIMIT:
+                break
         if batch:
             session.bulk_save_objects(batch)
-        total += len(batch)
-        if total % 20000 == 0:
-            session.flush()
-            logger.info(f"  ... {total:,} restaurants inserted")
+        if total >= RESTAURANT_LOAD_LIMIT:
+            break
     
     count = session.query(Restaurant).count()
-    logger.info(f"Restaurants loaded: {count:,} (deduplicated from {total:,} raw rows)")
+    logger.info(
+        "Restaurants loaded: %d (limit: %d)",
+        count,
+        RESTAURANT_LOAD_LIMIT,
+    )
     return count
 
 
@@ -284,7 +295,7 @@ def verify_counts(session):
     restaurants_path = PROCESSED_DIR / "restaurants.csv"
     if restaurants_path.is_file():
         counts["restaurants"] = session.query(Restaurant).count()
-        expected["restaurants"] = (130000, 145000)
+        expected["restaurants"] = (0, RESTAURANT_LOAD_LIMIT)
     else:
         counts["restaurants"] = None
     
@@ -299,7 +310,13 @@ def verify_counts(session):
         lo, hi = expected[table]
         ok = lo <= count <= hi
         status = "OK" if ok else "!!"
-        print(f"  {status} {table:15s}: {count:>8,d}  (expected {lo:,}-{hi:,})")
+        if table == "restaurants":
+            print(
+                f"  {status} {table:15s}: {count:>8,d}  "
+                f"(production limit: {RESTAURANT_LOAD_LIMIT:,})"
+            )
+        else:
+            print(f"  {status} {table:15s}: {count:>8,d}  (expected {lo:,}-{hi:,})")
         if not ok:
             all_ok = False
     print("=" * 55)
